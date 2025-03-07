@@ -71,7 +71,7 @@ import { getCookie } from "cookies-next";
 import NavbarWrapper from "../public_components/NavbarWrapper";
 import Image from "next/image";
 
-const API_URL = "https://auth.chirpchecker.com/api/profile/";
+const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
 export default function ProfilePage() {
   const [profile, setProfile] = useState(null);
@@ -95,7 +95,7 @@ export default function ProfilePage() {
     }
   
     try {
-      const response = await fetch(API_URL, {
+      const response = await fetch(API_URL+"/profile/", {
         method: "GET",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -115,7 +115,7 @@ export default function ProfilePage() {
         bio: data.bio || "Not provided",
         profilePic: data.profile_picture || "/images/user-avatar.png",
         subscriptionType: data.subscription_type || "free",
-        credibilityScore: Math.min(data.credibility_score || 7, 10),
+        credibilityScore: data.credibility_score,
         address: data.address || "Not provided",
         phone: data.phone || "Not provided",
         history: data.history || [],

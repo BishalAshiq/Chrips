@@ -7,7 +7,7 @@ let token = "";
 //   token = Cookies.get("token");
 // }
 
-const baseURL = process.env.NEXT_PUBLIC_API_URL;
+const baseURL = process.env.NEXT_PUBLIC_SPS_SERVICE_URL;
 console.log(baseURL, "baseURLbaseURLbaseURL");
 
 const axiosInstance = axios.create({

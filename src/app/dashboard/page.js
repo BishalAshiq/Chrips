@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import { getCookie } from 'cookies-next';
 import { jwtDecode } from "jwt-decode";
 import NavbarWrapper from "../public_components/NavbarWrapper";
-import WaveformPlayer from "../public_components/WaveformPlayer"; 
+import WaveformPlayer from "../public_components/WaveformPlayer";
 import Image from "next/image";
 import gradbg from "../../../public/images/grad-bg.png";
 import { withAuthProtection } from "../utils/withAuthProtection";
@@ -57,7 +57,7 @@ function DashboardPage() {
     };
 
     checkAuth();
-  }, [router, currentTime]); 
+  }, [router, currentTime]);
 
   if (isLoading) {
     return <div>Loading...</div>;
@@ -85,9 +85,15 @@ function DashboardPage() {
   };
 
   const handleVerify = () => {
-    const params = new URLSearchParams();
-    params.set('statement', statement);
-    router.push(`/analysis?${params.toString()}`);
+    if (statement.length > 30) {
+      const params = new URLSearchParams();
+
+      params.set('statement', statement);
+      router.push(`/analysis?${params.toString()}`);
+    } else {
+      alert("Text length must be greatend then 30");
+    }
+
   };
 
   return (
@@ -113,7 +119,7 @@ function DashboardPage() {
             maxLength={550}
             style={{
               wordWrap: "break-word",
-              overflowWrap: "break-word", 
+              overflowWrap: "break-word",
               whiteSpace: "pre-wrap",
               resize: "vertical",
             }}
@@ -130,9 +136,8 @@ function DashboardPage() {
                 className="relative w-8 h-5 flex items-center bg-green-900 rounded-full p-1 transition duration-300"
               >
                 <div
-                  className={`absolute left-1 w-3 h-3 bg-white rounded-full shadow-md transform transition-transform duration-300 ${
-                    isExternalClaims ? "translate-x-3" : "translate-x-0"
-                  }`}
+                  className={`absolute left-1 w-3 h-3 bg-white rounded-full shadow-md transform transition-transform duration-300 ${isExternalClaims ? "translate-x-3" : "translate-x-0"
+                    }`}
                 ></div>
               </button>
 
@@ -158,9 +163,8 @@ function DashboardPage() {
             </div>
 
             <span
-              className={`text-sm ${
-                statement.length >= warningThreshold ? "text-red-700 font-bold" : "text-gray-500"
-              }`}
+              className={`text-sm ${statement.length >= warningThreshold ? "text-red-700 font-bold" : "text-gray-500"
+                }`}
             >
               {statement.length}/{maxCharacters}
               <span className="hidden md:inline">
@@ -221,12 +225,12 @@ function DashboardPage() {
                 className={`text-gray-600 hover:text-blue-600 flex items-center gap-2 ${attachment ? "opacity-50 cursor-not-allowed" : ""}`}
               >
                 <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path fillRule="evenodd" clipRule="evenodd" d="M13.2071 7.2929C13.5976 7.68342 13.5976 8.31659 13.2071 8.70715L8.2071 13.7071C7.81658 14.0976 7.18342 14.0976 6.79289 13.7071C6.40237 13.3165 6.40237 12.6834 6.79289 12.2928L11.7929 7.2929C12.1834 6.90237 12.8166 6.90237 13.2071 7.2929Z" fill="#204618"/>
-                  <path fillRule="evenodd" clipRule="evenodd" d="M9.2929 2.33705C11.7423 -0.11235 15.7136 -0.11235 18.163 2.33705C20.6124 4.78645 20.6124 8.75775 18.163 11.2071L15.7071 13.663C15.3166 14.0535 14.6834 14.0535 14.2929 13.663C13.9024 13.2725 13.9024 12.6393 14.2929 12.2488L16.7487 9.79285C18.4171 8.12455 18.4171 5.41962 16.7487 3.75127C15.0804 2.08292 12.3755 2.08292 10.7071 3.75127L8.2513 6.20711C7.86074 6.59764 7.22757 6.59764 6.83705 6.20711C6.44652 5.81659 6.44652 5.18342 6.83705 4.7929L9.2929 2.33705ZM5.70711 7.33705C6.09763 7.72758 6.09763 8.36074 5.70711 8.75125L3.25126 11.2071C1.58291 12.8754 1.58291 15.5803 3.25126 17.2487C4.91961 18.917 7.62454 18.917 9.2929 17.2487L11.7487 14.7929C12.1393 14.4024 12.7724 14.4024 13.1629 14.7929C13.5535 15.1835 13.5535 15.8165 13.1629 16.2071L10.7071 18.663C8.2577 21.1124 4.28645 21.1124 1.83705 18.663C-0.61235 16.2136 -0.61235 12.2423 1.83705 9.79285L4.29289 7.33705C4.68342 6.94653 5.31658 6.94653 5.70711 7.33705Z" fill="#204618"/>
+                  <path fillRule="evenodd" clipRule="evenodd" d="M13.2071 7.2929C13.5976 7.68342 13.5976 8.31659 13.2071 8.70715L8.2071 13.7071C7.81658 14.0976 7.18342 14.0976 6.79289 13.7071C6.40237 13.3165 6.40237 12.6834 6.79289 12.2928L11.7929 7.2929C12.1834 6.90237 12.8166 6.90237 13.2071 7.2929Z" fill="#204618" />
+                  <path fillRule="evenodd" clipRule="evenodd" d="M9.2929 2.33705C11.7423 -0.11235 15.7136 -0.11235 18.163 2.33705C20.6124 4.78645 20.6124 8.75775 18.163 11.2071L15.7071 13.663C15.3166 14.0535 14.6834 14.0535 14.2929 13.663C13.9024 13.2725 13.9024 12.6393 14.2929 12.2488L16.7487 9.79285C18.4171 8.12455 18.4171 5.41962 16.7487 3.75127C15.0804 2.08292 12.3755 2.08292 10.7071 3.75127L8.2513 6.20711C7.86074 6.59764 7.22757 6.59764 6.83705 6.20711C6.44652 5.81659 6.44652 5.18342 6.83705 4.7929L9.2929 2.33705ZM5.70711 7.33705C6.09763 7.72758 6.09763 8.36074 5.70711 8.75125L3.25126 11.2071C1.58291 12.8754 1.58291 15.5803 3.25126 17.2487C4.91961 18.917 7.62454 18.917 9.2929 17.2487L11.7487 14.7929C12.1393 14.4024 12.7724 14.4024 13.1629 14.7929C13.5535 15.1835 13.5535 15.8165 13.1629 16.2071L10.7071 18.663C8.2577 21.1124 4.28645 21.1124 1.83705 18.663C-0.61235 16.2136 -0.61235 12.2423 1.83705 9.79285L4.29289 7.33705C4.68342 6.94653 5.31658 6.94653 5.70711 7.33705Z" fill="#204618" />
                 </svg>
               </button>
-              <button 
-                onClick={handleVerify} 
+              <button
+                onClick={handleVerify}
                 className="solid-button"
               >
                 Verify →
