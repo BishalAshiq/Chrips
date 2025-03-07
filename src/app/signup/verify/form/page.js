@@ -25,7 +25,7 @@ export default function FormPage() {
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
   const router = useRouter();
-  const API_URL = process.env.NEXT_PUBLIC_AUTH_URL;
+  const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
   // ✅ Retrieve stored email & OTP
   const email = getCookie("user_email");
@@ -68,7 +68,7 @@ export default function FormPage() {
 
     try {
 
-      const response = await fetch(`${API_URL}/api/register/verify-otp/`, {
+      const response = await fetch(`${API_URL}/register/verify-otp/`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

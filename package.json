@@ -9,6 +9,8 @@
     "lint": "next lint --no-cache"
   },
   "dependencies": {
+    "@next/env": "^15.2.1",
+    "axios": "^1.8.1",
     "cookies-next": "^5.1.0",
     "jsonwebtoken": "^9.0.2",
     "jwt-decode": "^4.0.0",

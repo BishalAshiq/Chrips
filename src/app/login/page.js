@@ -24,7 +24,7 @@ function SignInPage() {
   const [loading, setLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const router = useRouter();
-  const API_URL = process.env.NEXT_PUBLIC_AUTH_URL;
+  const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
   useEffect(() => {
     document.title = "Log In";
@@ -51,7 +51,7 @@ function SignInPage() {
     try {
       if (!API_URL) throw new Error("API URL is missing!");
   
-      const response = await fetch(`${API_URL}/api/login/`, {
+      const response = await fetch(`${API_URL}/login/`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

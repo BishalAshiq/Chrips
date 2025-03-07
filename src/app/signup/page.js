@@ -22,7 +22,7 @@ function SignupPage() {
   const [loading, setLoading] = useState(false);
   const [currentTime, setCurrentTime] = useState(null); // ✅ Fix: State to store time
   const router = useRouter();
-  const API_URL = process.env.NEXT_PUBLIC_AUTH_URL;
+  const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
   useEffect(() => {
     document.title = "Sign Up";
@@ -47,7 +47,7 @@ function SignupPage() {
     setError("");
 
     try {
-      const response = await fetch(`${API_URL}/api/register/send-otp/`, {
+      const response = await fetch(`${API_URL}/register/send-otp/`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email }),
