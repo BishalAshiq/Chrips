@@ -33,9 +33,8 @@
   color: #26632e;
 }
 
-
 .text-input-title {
-  color: var(--Main-PrimaryText, #1D203E);
+  color: var(--Main-PrimaryText, #1d203e);
   font-style: normal;
   font-weight: 500;
   line-height: normal;
@@ -44,7 +43,7 @@
 }
 
 .text-button {
-  color: var(--Main-White, #FFF);
+  color: var(--Main-White, #fff);
   font-size: 1.5 rem;
   font-style: normal;
   font-weight: 700;
@@ -53,21 +52,35 @@
 }
 
 .social-button {
-  color: #1D203E;
+  color: #1d203e;
   font-size: 0.875rem;
   font-style: normal;
   font-weight: 600;
   line-height: normal;
   letter-spacing: -0.28px;
-
 }
 
 .input-field {
   border-radius: 0.3125rem;
-  border: 1px solid var(--Foundation-Neutral-neutral-300, #E7ECF1);
-  background: var(--Main-White, #FFF);
+  border: 1px solid var(--Foundation-Neutral-neutral-300, #e7ecf1);
+  background: var(--Main-White, #fff);
   height: 2.625rem;
   align-self: stretch;
+}
+
+.profile-tag {
+  margin: 0 0 20px 0;
+  
+}
+.credibility-div {
+  margin: 50px 0 0 0;
+}
+
+.coverimgdots {
+  /* width: 100%; */
+  height: 60px;
+  border-bottom-right-radius: 140px;
+  border-bottom-left-radius: 140px;
 }
 
 @media (min-width: 768px) {
@@ -77,14 +90,13 @@
   }
 }
 
-
 .headline-text {
   text-align: center;
   font-size: 1.5rem;
   font-weight: 900;
   line-height: 120%;
   letter-spacing: -0.045rem;
-  background: linear-gradient(90deg, #39A042 0%, #1B5B37 100%);
+  background: linear-gradient(90deg, #39a042 0%, #1b5b37 100%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -106,7 +118,7 @@
 .submit-box {
   border-radius: 0.75rem;
   border: 1px solid rgba(231, 236, 241, 0.75);
-  background: #FDFDFC;
+  background: #fdfdfc;
   box-shadow: 0px 3.3125rem 7.75rem 0px rgba(204, 204, 204, 0.32);
 }
 
@@ -139,7 +151,7 @@
 }
 
 .toggle-text-off {
-  color: var(--Foundation-Neutral-neutral-600, #ACACAC);
+  color: var(--Foundation-Neutral-neutral-600, #acacac);
   font-family: Inter;
   font-style: normal;
   font-weight: 500;
@@ -162,8 +174,8 @@
 
 .outlined-button {
   border-radius: 0.4rem;
-  border: 1.5px solid #D6D6D8;
-  background: #FFF;
+  border: 1.5px solid #d6d6d8;
+  background: #fff;
   transition: all 0.2s ease-in-out;
   font-weight: 500;
   display: flex;
@@ -186,7 +198,7 @@
 
 @media (min-width: 768px) {
   .outlined-button {
-    padding: .8rem 4rem;
+    padding: 0.8rem 4rem;
   }
 }
 
@@ -201,7 +213,7 @@
 .solid-button {
   border-radius: 0.4rem;
   background: #26632e;
-  color: #FFFFFF;
+  color: #ffffff;
   font-family: Inter;
   font-style: normal;
   font-weight: 500;
@@ -220,7 +232,7 @@
 
 @media (min-width: 768px) {
   .solid-button {
-    padding: .8rem 4rem;
+    padding: 0.8rem 4rem;
     font-size: 1rem;
     /* 16px */
     letter-spacing: -0.02rem;
@@ -237,7 +249,6 @@
     align-items: center;
   }
 }
-
 
 .textarea-input-text {
   color: #535862;

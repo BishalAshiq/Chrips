@@ -17,7 +17,7 @@ function NewPass() {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState("");
   const router = useRouter();
-  const API_URL = process.env.NEXT_PUBLIC_AUTH_URL;
+  const API_URL = process.env.NEXT_PUBLIC_API_URL;
   const email = getCookie("reset_email") || "";
   const otp = getCookie("reset_otp") || "";
 

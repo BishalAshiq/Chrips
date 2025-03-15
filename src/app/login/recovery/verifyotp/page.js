@@ -20,7 +20,7 @@ function VerifyOTP() {
   const [loading, setLoading] = useState(false);
   const router = useRouter();
   const email = getCookie("reset_email") || "";
-  const API_URL = process.env.NEXT_PUBLIC_AUTH_URL;
+  const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
   useEffect(() => {
     document.title = "Verify Code";
